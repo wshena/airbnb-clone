@@ -5,7 +5,11 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
-function SampleNextArrow(props) {
+interface ArrowProps {
+  onClick: () => void;
+}
+
+const SampleNextArrow: React.FC<ArrowProps> = (props) => {
   const { onClick } = props;
   return (
     <div className="absolute top-0 right-0 flex items-center justify-center h-[100%] z-10 bg-white bg-blur-lg bg-opacity-40">
@@ -19,7 +23,7 @@ function SampleNextArrow(props) {
   );
 }
 
-function SamplePrevArrow(props) {
+const SamplePrevArrow: React.FC<ArrowProps> = (props) => {
   const { onClick } = props;
   return (
     <div className="absolute top-0 left-0 flex items-center justify-center h-[100%] z-10 bg-blur-lg bg-opacity-40">
@@ -33,14 +37,22 @@ function SamplePrevArrow(props) {
   );
 }
 
-const SimpleSlider = ({itemArray}) => {
+interface SimpleSliderProps {
+  itemArray: JSX.Element[];
+}
+
+const SimpleSlider: React.FC<SimpleSliderProps> = ({ itemArray }) => {
   const settings = {
     infinite: true,
     speed: 500,
     slidesToShow: 9,
     slidesToScroll: 9,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleNextArrow onClick={function (): void {
+      throw new Error('Function not implemented.');
+    } } />,
+    prevArrow: <SamplePrevArrow onClick={function (): void {
+      throw new Error('Function not implemented.');
+    } } />,
     initialSlide: 0,
     responsive: [
       {
