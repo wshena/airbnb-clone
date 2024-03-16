@@ -4,7 +4,7 @@ import { IoSearch } from 'react-icons/io5'
 import { CiCirclePlus, CiCircleMinus  } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 
-const LocationThumbnail = ({label}) => {
+const LocationThumbnail = ({label}:{label:string}) => {
   return (
     <div className="flex flex-col items-start">
       <div className="w-[100px] h-[100px] rounded-[10px]">
@@ -172,7 +172,7 @@ const GuestButton = () => {
   )
 }
 
-const CheckButton = ({ label }) => {
+const CheckButton = ({ label }:{label:string}) => {
   const [isClick, setIsClick] = useState(false);
   const handleClick = () => {
     setIsClick(!isClick);
