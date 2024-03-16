@@ -4,7 +4,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { IoMdSearch } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 
-const BottomNav = ({label, icon, isClick}:{label:string,icon:JSX.Element}) => {
+const BottomNav = ({ label, icon, isClick }: { label: string; icon: JSX.Element; isClick: () => void }) => {
   return (
     <button onClick={isClick} className='flex flex-col gap-[5px] items-center bg-none text-black'>
       {icon}
@@ -37,8 +37,8 @@ const BottomNavMobile = () => {
         } flex items-center justify-evenly px-[20px] py-[10px]`}
       >
         <BottomNav label='Telusuri' icon={<IoMdSearch color='black' size={24}/>} isClick={handleClick}/>
-        <BottomNav label='Favorite' icon={<FaRegHeart color='black' size={24}/>} />
-        <BottomNav label='Masuk' icon={<CgProfile color='black' size={24}/>} />
+        <BottomNav label='Favorite' icon={<FaRegHeart color='black' size={24}/>} isClick={handleClick}/>
+        <BottomNav label='Masuk' icon={<CgProfile color='black' size={24}/>} isClick={handleClick}/>
       </div>
     </>
   );
